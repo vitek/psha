@@ -454,7 +454,7 @@ struct __pyx_obj_4psha_sha1;
 struct __pyx_t_4psha_SHADump;
 typedef struct __pyx_t_4psha_SHADump __pyx_t_4psha_SHADump;
 
-/* "psha.pyx":16
+/* "psha.pyx":18
  * 
  * 
  * cdef enum:             # <<<<<<<<<<<<<<
@@ -465,7 +465,7 @@ enum  {
   __pyx_e_4psha_SHA_DUMP_MAGIC = 0x5a6a4853
 };
 
-/* "psha.pyx":20
+/* "psha.pyx":22
  * 
  * 
  * ctypedef struct SHADump:             # <<<<<<<<<<<<<<
@@ -477,7 +477,7 @@ struct __pyx_t_4psha_SHADump {
   SHA_CTX sha;
 };
 
-/* "psha.pyx":29
+/* "psha.pyx":31
  * 
  * 
  * cdef class sha1(object):             # <<<<<<<<<<<<<<
@@ -497,7 +497,6 @@ struct __pyx_vtabstruct_4psha_sha1 {
   struct __pyx_obj_4psha_sha1 *(*copy)(struct __pyx_obj_4psha_sha1 *, int __pyx_skip_dispatch);
   PyObject *(*digest)(struct __pyx_obj_4psha_sha1 *, int __pyx_skip_dispatch);
   PyObject *(*hexdigest)(struct __pyx_obj_4psha_sha1 *, int __pyx_skip_dispatch);
-  PyObject *(*dumps)(struct __pyx_obj_4psha_sha1 *, int __pyx_skip_dispatch);
 };
 static struct __pyx_vtabstruct_4psha_sha1 *__pyx_vtabptr_4psha_sha1;
 
@@ -629,8 +628,6 @@ static PyObject *__Pyx_Py3MetaclassPrepare(PyObject *metaclass, PyObject *bases,
 static PyObject *__Pyx_Py3ClassCreate(PyObject *metaclass, PyObject *name, PyObject *bases, PyObject *dict,
                                       PyObject *mkw, int calculate_metaclass, int allow_py2_metaclass);
 
-static PyObject *__Pyx_GetNameInClass(PyObject *nmspace, PyObject *name);
-
 typedef struct {
     int code_line;
     PyCodeObject* code_object;
@@ -662,7 +659,8 @@ static PyObject *__pyx_f_4psha_4sha1_update(struct __pyx_obj_4psha_sha1 *__pyx_v
 static struct __pyx_obj_4psha_sha1 *__pyx_f_4psha_4sha1_copy(struct __pyx_obj_4psha_sha1 *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
 static PyObject *__pyx_f_4psha_4sha1_digest(struct __pyx_obj_4psha_sha1 *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
 static PyObject *__pyx_f_4psha_4sha1_hexdigest(struct __pyx_obj_4psha_sha1 *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
-static PyObject *__pyx_f_4psha_4sha1_dumps(struct __pyx_obj_4psha_sha1 *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
+
+/* Module declarations from 'cpython.version' */
 
 /* Module declarations from 'libc.stdint' */
 
@@ -670,23 +668,20 @@ static PyObject *__pyx_f_4psha_4sha1_dumps(struct __pyx_obj_4psha_sha1 *__pyx_v_
 
 /* Module declarations from 'psha' */
 static PyTypeObject *__pyx_ptype_4psha_sha1 = 0;
+static PyObject *__pyx_f_4psha_dumps(struct __pyx_obj_4psha_sha1 *, int __pyx_skip_dispatch); /*proto*/
+static struct __pyx_obj_4psha_sha1 *__pyx_f_4psha_loads(PyObject *, int __pyx_skip_dispatch); /*proto*/
 #define __Pyx_MODULE_NAME "psha"
 int __pyx_module_is_main_psha = 0;
 
 /* Implementation of 'psha' */
 static PyObject *__pyx_builtin_Exception;
-static PyObject *__pyx_builtin_staticmethod;
 static char __pyx_k_doc[] = "__doc__";
 static char __pyx_k_hex[] = "hex";
-static char __pyx_k_sha[] = "sha";
 static char __pyx_k_copy[] = "copy";
 static char __pyx_k_data[] = "data";
-static char __pyx_k_dump[] = "dump";
 static char __pyx_k_main[] = "__main__";
 static char __pyx_k_psha[] = "psha";
 static char __pyx_k_test[] = "__test__";
-static char __pyx_k_dumps[] = "dumps";
-static char __pyx_k_loads[] = "loads";
 static char __pyx_k_digest[] = "digest";
 static char __pyx_k_encode[] = "encode";
 static char __pyx_k_module[] = "__module__";
@@ -698,10 +693,8 @@ static char __pyx_k_hexdigest[] = "hexdigest";
 static char __pyx_k_metaclass[] = "__metaclass__";
 static char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static char __pyx_k_DecodeError[] = "DecodeError";
-static char __pyx_k_staticmethod[] = "staticmethod";
 static char __pyx_k_Magic_does_not_match[] = "Magic does not match";
 static char __pyx_k_Invalid_object_length[] = "Invalid object length";
-static char __pyx_k_home_vitja_work_psha_psha_pyx[] = "/home/vitja/work/psha/psha.pyx";
 static PyObject *__pyx_n_s_DecodeError;
 static PyObject *__pyx_n_s_Exception;
 static PyObject *__pyx_kp_s_Invalid_object_length;
@@ -710,13 +703,9 @@ static PyObject *__pyx_n_s_copy;
 static PyObject *__pyx_n_s_data;
 static PyObject *__pyx_n_s_digest;
 static PyObject *__pyx_n_s_doc;
-static PyObject *__pyx_n_s_dump;
-static PyObject *__pyx_n_s_dumps;
 static PyObject *__pyx_n_s_encode;
 static PyObject *__pyx_n_s_hex;
 static PyObject *__pyx_n_s_hexdigest;
-static PyObject *__pyx_kp_s_home_vitja_work_psha_psha_pyx;
-static PyObject *__pyx_n_s_loads;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_metaclass;
 static PyObject *__pyx_n_s_module;
@@ -724,8 +713,6 @@ static PyObject *__pyx_n_s_prepare;
 static PyObject *__pyx_n_s_psha;
 static PyObject *__pyx_n_s_pyx_vtable;
 static PyObject *__pyx_n_s_qualname;
-static PyObject *__pyx_n_s_sha;
-static PyObject *__pyx_n_s_staticmethod;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_update;
 static int __pyx_pf_4psha_4sha1___cinit__(struct __pyx_obj_4psha_sha1 *__pyx_v_self, PyObject *__pyx_v_data); /* proto */
@@ -733,16 +720,14 @@ static PyObject *__pyx_pf_4psha_4sha1_2update(struct __pyx_obj_4psha_sha1 *__pyx
 static PyObject *__pyx_pf_4psha_4sha1_4copy(struct __pyx_obj_4psha_sha1 *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_4psha_4sha1_6digest(struct __pyx_obj_4psha_sha1 *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_4psha_4sha1_8hexdigest(struct __pyx_obj_4psha_sha1 *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_4psha_4sha1_10dumps(struct __pyx_obj_4psha_sha1 *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_4psha_4sha1_12loads(PyObject *__pyx_v_data); /* proto */
+static PyObject *__pyx_pf_4psha_dumps(CYTHON_UNUSED PyObject *__pyx_self, struct __pyx_obj_4psha_sha1 *__pyx_v_sha); /* proto */
+static PyObject *__pyx_pf_4psha_2loads(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data); /* proto */
 static PyObject *__pyx_tp_new_4psha_sha1(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__2;
 static PyObject *__pyx_tuple__3;
-static PyObject *__pyx_tuple__4;
-static PyObject *__pyx_codeobj__5;
 
-/* "psha.pyx":32
+/* "psha.pyx":34
  *     cdef SHA_CTX sha
  * 
  *     def __cinit__(self, bytes data=None):             # <<<<<<<<<<<<<<
@@ -781,7 +766,7 @@ static int __pyx_pw_4psha_4sha1_1__cinit__(PyObject *__pyx_v_self, PyObject *__p
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 32; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 34; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -794,13 +779,13 @@ static int __pyx_pw_4psha_4sha1_1__cinit__(PyObject *__pyx_v_self, PyObject *__p
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 32; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 34; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("psha.sha1.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyBytes_Type), 1, "data", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 32; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyBytes_Type), 1, "data", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 34; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_4psha_4sha1___cinit__(((struct __pyx_obj_4psha_sha1 *)__pyx_v_self), __pyx_v_data);
 
   /* function exit code */
@@ -823,7 +808,7 @@ static int __pyx_pf_4psha_4sha1___cinit__(struct __pyx_obj_4psha_sha1 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "psha.pyx":33
+  /* "psha.pyx":35
  * 
  *     def __cinit__(self, bytes data=None):
  *         SHA1_Init(&self.sha)             # <<<<<<<<<<<<<<
@@ -832,7 +817,7 @@ static int __pyx_pf_4psha_4sha1___cinit__(struct __pyx_obj_4psha_sha1 *__pyx_v_s
  */
   SHA1_Init((&__pyx_v_self->sha));
 
-  /* "psha.pyx":34
+  /* "psha.pyx":36
  *     def __cinit__(self, bytes data=None):
  *         SHA1_Init(&self.sha)
  *         if data is not None:             # <<<<<<<<<<<<<<
@@ -843,18 +828,18 @@ static int __pyx_pf_4psha_4sha1___cinit__(struct __pyx_obj_4psha_sha1 *__pyx_v_s
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "psha.pyx":35
+    /* "psha.pyx":37
  *         SHA1_Init(&self.sha)
  *         if data is not None:
  *             self.update(data)             # <<<<<<<<<<<<<<
  * 
  *     cpdef update(self, bytes data):
  */
-    __pyx_t_3 = ((struct __pyx_vtabstruct_4psha_sha1 *)__pyx_v_self->__pyx_vtab)->update(__pyx_v_self, __pyx_v_data, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 35; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = ((struct __pyx_vtabstruct_4psha_sha1 *)__pyx_v_self->__pyx_vtab)->update(__pyx_v_self, __pyx_v_data, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 37; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "psha.pyx":34
+    /* "psha.pyx":36
  *     def __cinit__(self, bytes data=None):
  *         SHA1_Init(&self.sha)
  *         if data is not None:             # <<<<<<<<<<<<<<
@@ -863,7 +848,7 @@ static int __pyx_pf_4psha_4sha1___cinit__(struct __pyx_obj_4psha_sha1 *__pyx_v_s
  */
   }
 
-  /* "psha.pyx":32
+  /* "psha.pyx":34
  *     cdef SHA_CTX sha
  * 
  *     def __cinit__(self, bytes data=None):             # <<<<<<<<<<<<<<
@@ -883,7 +868,7 @@ static int __pyx_pf_4psha_4sha1___cinit__(struct __pyx_obj_4psha_sha1 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "psha.pyx":37
+/* "psha.pyx":39
  *             self.update(data)
  * 
  *     cpdef update(self, bytes data):             # <<<<<<<<<<<<<<
@@ -910,7 +895,7 @@ static PyObject *__pyx_f_4psha_4sha1_update(struct __pyx_obj_4psha_sha1 *__pyx_v
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_update); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 37; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_update); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 39; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_4psha_4sha1_3update)) {
       __Pyx_XDECREF(__pyx_r);
@@ -926,16 +911,16 @@ static PyObject *__pyx_f_4psha_4sha1_update(struct __pyx_obj_4psha_sha1 *__pyx_v
         }
       }
       if (!__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_data); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 37; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_data); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 39; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
       } else {
-        __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 37; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 39; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
         __Pyx_INCREF(__pyx_v_data);
         __Pyx_GIVEREF(__pyx_v_data);
         PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_v_data);
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 37; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 39; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       }
@@ -948,22 +933,22 @@ static PyObject *__pyx_f_4psha_4sha1_update(struct __pyx_obj_4psha_sha1 *__pyx_v
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "psha.pyx":38
+  /* "psha.pyx":40
  * 
  *     cpdef update(self, bytes data):
  *         SHA1_Update(&self.sha, <char*> data, len(data))             # <<<<<<<<<<<<<<
  * 
  *     cpdef sha1 copy(self):
  */
-  __pyx_t_6 = __Pyx_PyObject_AsString(__pyx_v_data); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 38; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = __Pyx_PyObject_AsString(__pyx_v_data); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 40; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   if (unlikely(__pyx_v_data == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 38; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 40; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_t_7 = PyBytes_GET_SIZE(__pyx_v_data); if (unlikely(__pyx_t_7 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 38; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_7 = PyBytes_GET_SIZE(__pyx_v_data); if (unlikely(__pyx_t_7 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 40; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   SHA1_Update((&__pyx_v_self->sha), ((char *)__pyx_t_6), __pyx_t_7);
 
-  /* "psha.pyx":37
+  /* "psha.pyx":39
  *             self.update(data)
  * 
  *     cpdef update(self, bytes data):             # <<<<<<<<<<<<<<
@@ -997,7 +982,7 @@ static PyObject *__pyx_pw_4psha_4sha1_3update(PyObject *__pyx_v_self, PyObject *
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("update (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyBytes_Type), 1, "data", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 37; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyBytes_Type), 1, "data", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 39; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_4psha_4sha1_2update(((struct __pyx_obj_4psha_sha1 *)__pyx_v_self), ((PyObject*)__pyx_v_data));
 
   /* function exit code */
@@ -1018,7 +1003,7 @@ static PyObject *__pyx_pf_4psha_4sha1_2update(struct __pyx_obj_4psha_sha1 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("update", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_4psha_4sha1_update(__pyx_v_self, __pyx_v_data, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 37; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_4psha_4sha1_update(__pyx_v_self, __pyx_v_data, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 39; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1035,7 +1020,7 @@ static PyObject *__pyx_pf_4psha_4sha1_2update(struct __pyx_obj_4psha_sha1 *__pyx
   return __pyx_r;
 }
 
-/* "psha.pyx":40
+/* "psha.pyx":42
  *         SHA1_Update(&self.sha, <char*> data, len(data))
  * 
  *     cpdef sha1 copy(self):             # <<<<<<<<<<<<<<
@@ -1061,7 +1046,7 @@ static struct __pyx_obj_4psha_sha1 *__pyx_f_4psha_4sha1_copy(struct __pyx_obj_4p
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_copy); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 40; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_copy); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 42; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_4psha_4sha1_5copy)) {
       __Pyx_XDECREF(((PyObject *)__pyx_r));
@@ -1077,14 +1062,14 @@ static struct __pyx_obj_4psha_sha1 *__pyx_f_4psha_4sha1_copy(struct __pyx_obj_4p
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 40; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 42; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 40; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 42; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_4psha_sha1))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 40; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_4psha_sha1))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 42; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __pyx_r = ((struct __pyx_obj_4psha_sha1 *)__pyx_t_2);
       __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -1093,19 +1078,19 @@ static struct __pyx_obj_4psha_sha1 *__pyx_f_4psha_4sha1_copy(struct __pyx_obj_4p
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "psha.pyx":41
+  /* "psha.pyx":43
  * 
  *     cpdef sha1 copy(self):
  *         obj = sha1()             # <<<<<<<<<<<<<<
  *         obj.sha = self.sha
  *         return obj
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_4psha_sha1), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 41; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_4psha_sha1), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 43; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_obj = ((struct __pyx_obj_4psha_sha1 *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "psha.pyx":42
+  /* "psha.pyx":44
  *     cpdef sha1 copy(self):
  *         obj = sha1()
  *         obj.sha = self.sha             # <<<<<<<<<<<<<<
@@ -1115,7 +1100,7 @@ static struct __pyx_obj_4psha_sha1 *__pyx_f_4psha_4sha1_copy(struct __pyx_obj_4p
   __pyx_t_5 = __pyx_v_self->sha;
   __pyx_v_obj->sha = __pyx_t_5;
 
-  /* "psha.pyx":43
+  /* "psha.pyx":45
  *         obj = sha1()
  *         obj.sha = self.sha
  *         return obj             # <<<<<<<<<<<<<<
@@ -1127,7 +1112,7 @@ static struct __pyx_obj_4psha_sha1 *__pyx_f_4psha_4sha1_copy(struct __pyx_obj_4p
   __pyx_r = __pyx_v_obj;
   goto __pyx_L0;
 
-  /* "psha.pyx":40
+  /* "psha.pyx":42
  *         SHA1_Update(&self.sha, <char*> data, len(data))
  * 
  *     cpdef sha1 copy(self):             # <<<<<<<<<<<<<<
@@ -1172,7 +1157,7 @@ static PyObject *__pyx_pf_4psha_4sha1_4copy(struct __pyx_obj_4psha_sha1 *__pyx_v
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("copy", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_4psha_4sha1_copy(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 40; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((PyObject *)__pyx_f_4psha_4sha1_copy(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 42; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1189,7 +1174,7 @@ static PyObject *__pyx_pf_4psha_4sha1_4copy(struct __pyx_obj_4psha_sha1 *__pyx_v
   return __pyx_r;
 }
 
-/* "psha.pyx":45
+/* "psha.pyx":47
  *         return obj
  * 
  *     cpdef bytes digest(self):             # <<<<<<<<<<<<<<
@@ -1216,7 +1201,7 @@ static PyObject *__pyx_f_4psha_4sha1_digest(struct __pyx_obj_4psha_sha1 *__pyx_v
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_digest); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 45; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_digest); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 47; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_4psha_4sha1_7digest)) {
       __Pyx_XDECREF(__pyx_r);
@@ -1232,14 +1217,14 @@ static PyObject *__pyx_f_4psha_4sha1_digest(struct __pyx_obj_4psha_sha1 *__pyx_v
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 45; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 47; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 45; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 47; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 45; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 47; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __pyx_r = ((PyObject*)__pyx_t_2);
       __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -1248,7 +1233,7 @@ static PyObject *__pyx_f_4psha_4sha1_digest(struct __pyx_obj_4psha_sha1 *__pyx_v
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "psha.pyx":46
+  /* "psha.pyx":48
  * 
  *     cpdef bytes digest(self):
  *         cdef SHA_CTX sha_copy = self.sha             # <<<<<<<<<<<<<<
@@ -1258,7 +1243,7 @@ static PyObject *__pyx_f_4psha_4sha1_digest(struct __pyx_obj_4psha_sha1 *__pyx_v
   __pyx_t_5 = __pyx_v_self->sha;
   __pyx_v_sha_copy = __pyx_t_5;
 
-  /* "psha.pyx":48
+  /* "psha.pyx":50
  *         cdef SHA_CTX sha_copy = self.sha
  *         cdef unsigned char binary[SHA_DIGEST_LENGTH]
  *         SHA1_Final(binary, &sha_copy)             # <<<<<<<<<<<<<<
@@ -1267,7 +1252,7 @@ static PyObject *__pyx_f_4psha_4sha1_digest(struct __pyx_obj_4psha_sha1 *__pyx_v
  */
   SHA1_Final(__pyx_v_binary, (&__pyx_v_sha_copy));
 
-  /* "psha.pyx":49
+  /* "psha.pyx":51
  *         cdef unsigned char binary[SHA_DIGEST_LENGTH]
  *         SHA1_Final(binary, &sha_copy)
  *         return binary[:SHA_DIGEST_LENGTH]             # <<<<<<<<<<<<<<
@@ -1275,13 +1260,13 @@ static PyObject *__pyx_f_4psha_4sha1_digest(struct __pyx_obj_4psha_sha1 *__pyx_v
  *     cpdef str hexdigest(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(((const char*)__pyx_v_binary) + 0, SHA_DIGEST_LENGTH - 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 49; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(((const char*)__pyx_v_binary) + 0, SHA_DIGEST_LENGTH - 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 51; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "psha.pyx":45
+  /* "psha.pyx":47
  *         return obj
  * 
  *     cpdef bytes digest(self):             # <<<<<<<<<<<<<<
@@ -1325,7 +1310,7 @@ static PyObject *__pyx_pf_4psha_4sha1_6digest(struct __pyx_obj_4psha_sha1 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("digest", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_4psha_4sha1_digest(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 45; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_4psha_4sha1_digest(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 47; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1342,22 +1327,24 @@ static PyObject *__pyx_pf_4psha_4sha1_6digest(struct __pyx_obj_4psha_sha1 *__pyx
   return __pyx_r;
 }
 
-/* "psha.pyx":51
+/* "psha.pyx":53
  *         return binary[:SHA_DIGEST_LENGTH]
  * 
  *     cpdef str hexdigest(self):             # <<<<<<<<<<<<<<
- *         return self.digest().encode('hex')
- * 
+ *         cdef bytes digest = self.digest()
+ *         if PY_MAJOR_VERSION < 3:
  */
 
 static PyObject *__pyx_pw_4psha_4sha1_9hexdigest(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_f_4psha_4sha1_hexdigest(struct __pyx_obj_4psha_sha1 *__pyx_v_self, int __pyx_skip_dispatch) {
+  PyObject *__pyx_v_digest = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
+  int __pyx_t_5;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -1366,7 +1353,7 @@ static PyObject *__pyx_f_4psha_4sha1_hexdigest(struct __pyx_obj_4psha_sha1 *__py
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_hexdigest); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 51; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_hexdigest); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_4psha_4sha1_9hexdigest)) {
       __Pyx_XDECREF(__pyx_r);
@@ -1382,14 +1369,14 @@ static PyObject *__pyx_f_4psha_4sha1_hexdigest(struct __pyx_obj_4psha_sha1 *__py
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 51; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 51; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 51; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __pyx_r = ((PyObject*)__pyx_t_2);
       __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -1398,33 +1385,94 @@ static PyObject *__pyx_f_4psha_4sha1_hexdigest(struct __pyx_obj_4psha_sha1 *__py
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "psha.pyx":52
+  /* "psha.pyx":54
  * 
  *     cpdef str hexdigest(self):
- *         return self.digest().encode('hex')             # <<<<<<<<<<<<<<
+ *         cdef bytes digest = self.digest()             # <<<<<<<<<<<<<<
+ *         if PY_MAJOR_VERSION < 3:
+ *             return digest.encode('hex')
+ */
+  __pyx_t_1 = ((struct __pyx_vtabstruct_4psha_sha1 *)__pyx_v_self->__pyx_vtab)->digest(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 54; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_v_digest = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "psha.pyx":55
+ *     cpdef str hexdigest(self):
+ *         cdef bytes digest = self.digest()
+ *         if PY_MAJOR_VERSION < 3:             # <<<<<<<<<<<<<<
+ *             return digest.encode('hex')
+ *         return digest.hex()
+ */
+  __pyx_t_5 = ((PY_MAJOR_VERSION < 3) != 0);
+  if (__pyx_t_5) {
+
+    /* "psha.pyx":56
+ *         cdef bytes digest = self.digest()
+ *         if PY_MAJOR_VERSION < 3:
+ *             return digest.encode('hex')             # <<<<<<<<<<<<<<
+ *         return digest.hex()
  * 
- *     cpdef bytes dumps(self):
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_digest, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 56; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 56; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 56; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_r = ((PyObject*)__pyx_t_2);
+    __pyx_t_2 = 0;
+    goto __pyx_L0;
+
+    /* "psha.pyx":55
+ *     cpdef str hexdigest(self):
+ *         cdef bytes digest = self.digest()
+ *         if PY_MAJOR_VERSION < 3:             # <<<<<<<<<<<<<<
+ *             return digest.encode('hex')
+ *         return digest.hex()
+ */
+  }
+
+  /* "psha.pyx":57
+ *         if PY_MAJOR_VERSION < 3:
+ *             return digest.encode('hex')
+ *         return digest.hex()             # <<<<<<<<<<<<<<
+ * 
+ * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((struct __pyx_vtabstruct_4psha_sha1 *)__pyx_v_self->__pyx_vtab)->digest(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 52; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_digest, __pyx_n_s_hex); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 57; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_encode); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 52; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = NULL;
+  if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_1))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_1);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_1, function);
+    }
+  }
+  if (__pyx_t_3) {
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 57; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 57; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 52; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (!(likely(PyString_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_1)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 52; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_r = ((PyObject*)__pyx_t_1);
-  __pyx_t_1 = 0;
+  if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 57; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_r = ((PyObject*)__pyx_t_2);
+  __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "psha.pyx":51
+  /* "psha.pyx":53
  *         return binary[:SHA_DIGEST_LENGTH]
  * 
  *     cpdef str hexdigest(self):             # <<<<<<<<<<<<<<
- *         return self.digest().encode('hex')
- * 
+ *         cdef bytes digest = self.digest()
+ *         if PY_MAJOR_VERSION < 3:
  */
 
   /* function exit code */
@@ -1436,6 +1484,7 @@ static PyObject *__pyx_f_4psha_4sha1_hexdigest(struct __pyx_obj_4psha_sha1 *__py
   __Pyx_AddTraceback("psha.sha1.hexdigest", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_digest);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -1463,7 +1512,7 @@ static PyObject *__pyx_pf_4psha_4sha1_8hexdigest(struct __pyx_obj_4psha_sha1 *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("hexdigest", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_4psha_4sha1_hexdigest(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 51; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_4psha_4sha1_hexdigest(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1480,112 +1529,71 @@ static PyObject *__pyx_pf_4psha_4sha1_8hexdigest(struct __pyx_obj_4psha_sha1 *__
   return __pyx_r;
 }
 
-/* "psha.pyx":54
- *         return self.digest().encode('hex')
+/* "psha.pyx":60
  * 
- *     cpdef bytes dumps(self):             # <<<<<<<<<<<<<<
- *         cdef SHADump dump
- *         dump.magic = SHA_DUMP_MAGIC
+ * 
+ * cpdef bytes dumps(sha1 sha):             # <<<<<<<<<<<<<<
+ *     cdef SHADump dump
+ *     dump.magic = SHA_DUMP_MAGIC
  */
 
-static PyObject *__pyx_pw_4psha_4sha1_11dumps(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_f_4psha_4sha1_dumps(struct __pyx_obj_4psha_sha1 *__pyx_v_self, int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_4psha_1dumps(PyObject *__pyx_self, PyObject *__pyx_v_sha); /*proto*/
+static PyObject *__pyx_f_4psha_dumps(struct __pyx_obj_4psha_sha1 *__pyx_v_sha, CYTHON_UNUSED int __pyx_skip_dispatch) {
   __pyx_t_4psha_SHADump __pyx_v_dump;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  SHA_CTX __pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  SHA_CTX __pyx_t_5;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("dumps", 0);
-  /* Check if called by wrapper */
-  if (unlikely(__pyx_skip_dispatch)) ;
-  /* Check if overridden in Python */
-  else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_dumps); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 54; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_1);
-    if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_4psha_4sha1_11dumps)) {
-      __Pyx_XDECREF(__pyx_r);
-      __Pyx_INCREF(__pyx_t_1);
-      __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
-      if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_3))) {
-        __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-        if (likely(__pyx_t_4)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-          __Pyx_INCREF(__pyx_t_4);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_3, function);
-        }
-      }
-      if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 54; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 54; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      }
-      __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 54; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __pyx_r = ((PyObject*)__pyx_t_2);
-      __pyx_t_2 = 0;
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      goto __pyx_L0;
-    }
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  }
 
-  /* "psha.pyx":56
- *     cpdef bytes dumps(self):
- *         cdef SHADump dump
- *         dump.magic = SHA_DUMP_MAGIC             # <<<<<<<<<<<<<<
- *         dump.sha = self.sha
- *         return (<char *>&dump)[:sizeof(SHADump)]
+  /* "psha.pyx":62
+ * cpdef bytes dumps(sha1 sha):
+ *     cdef SHADump dump
+ *     dump.magic = SHA_DUMP_MAGIC             # <<<<<<<<<<<<<<
+ *     dump.sha = sha.sha
+ *     return (<char *>&dump)[:sizeof(SHADump)]
  */
   __pyx_v_dump.magic = __pyx_e_4psha_SHA_DUMP_MAGIC;
 
-  /* "psha.pyx":57
- *         cdef SHADump dump
- *         dump.magic = SHA_DUMP_MAGIC
- *         dump.sha = self.sha             # <<<<<<<<<<<<<<
- *         return (<char *>&dump)[:sizeof(SHADump)]
+  /* "psha.pyx":63
+ *     cdef SHADump dump
+ *     dump.magic = SHA_DUMP_MAGIC
+ *     dump.sha = sha.sha             # <<<<<<<<<<<<<<
+ *     return (<char *>&dump)[:sizeof(SHADump)]
  * 
  */
-  __pyx_t_5 = __pyx_v_self->sha;
-  __pyx_v_dump.sha = __pyx_t_5;
+  __pyx_t_1 = __pyx_v_sha->sha;
+  __pyx_v_dump.sha = __pyx_t_1;
 
-  /* "psha.pyx":58
- *         dump.magic = SHA_DUMP_MAGIC
- *         dump.sha = self.sha
- *         return (<char *>&dump)[:sizeof(SHADump)]             # <<<<<<<<<<<<<<
+  /* "psha.pyx":64
+ *     dump.magic = SHA_DUMP_MAGIC
+ *     dump.sha = sha.sha
+ *     return (<char *>&dump)[:sizeof(SHADump)]             # <<<<<<<<<<<<<<
  * 
- *     @staticmethod
+ * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(((char *)(&__pyx_v_dump)) + 0, (sizeof(__pyx_t_4psha_SHADump)) - 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 58; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = ((PyObject*)__pyx_t_1);
-  __pyx_t_1 = 0;
+  __pyx_t_2 = __Pyx_PyBytes_FromStringAndSize(((char *)(&__pyx_v_dump)) + 0, (sizeof(__pyx_t_4psha_SHADump)) - 0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = ((PyObject*)__pyx_t_2);
+  __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "psha.pyx":54
- *         return self.digest().encode('hex')
+  /* "psha.pyx":60
  * 
- *     cpdef bytes dumps(self):             # <<<<<<<<<<<<<<
- *         cdef SHADump dump
- *         dump.magic = SHA_DUMP_MAGIC
+ * 
+ * cpdef bytes dumps(sha1 sha):             # <<<<<<<<<<<<<<
+ *     cdef SHADump dump
+ *     dump.magic = SHA_DUMP_MAGIC
  */
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("psha.sha1.dumps", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("psha.dumps", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1594,19 +1602,27 @@ static PyObject *__pyx_f_4psha_4sha1_dumps(struct __pyx_obj_4psha_sha1 *__pyx_v_
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_4psha_4sha1_11dumps(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_4psha_4sha1_11dumps(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_4psha_1dumps(PyObject *__pyx_self, PyObject *__pyx_v_sha); /*proto*/
+static PyObject *__pyx_pw_4psha_1dumps(PyObject *__pyx_self, PyObject *__pyx_v_sha) {
+  CYTHON_UNUSED int __pyx_lineno = 0;
+  CYTHON_UNUSED const char *__pyx_filename = NULL;
+  CYTHON_UNUSED int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("dumps (wrapper)", 0);
-  __pyx_r = __pyx_pf_4psha_4sha1_10dumps(((struct __pyx_obj_4psha_sha1 *)__pyx_v_self));
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_sha), __pyx_ptype_4psha_sha1, 1, "sha", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 60; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_r = __pyx_pf_4psha_dumps(__pyx_self, ((struct __pyx_obj_4psha_sha1 *)__pyx_v_sha));
 
   /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_4psha_4sha1_10dumps(struct __pyx_obj_4psha_sha1 *__pyx_v_self) {
+static PyObject *__pyx_pf_4psha_dumps(CYTHON_UNUSED PyObject *__pyx_self, struct __pyx_obj_4psha_sha1 *__pyx_v_sha) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1615,7 +1631,7 @@ static PyObject *__pyx_pf_4psha_4sha1_10dumps(struct __pyx_obj_4psha_sha1 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("dumps", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_4psha_4sha1_dumps(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 54; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_4psha_dumps(__pyx_v_sha, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 60; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1624,7 +1640,7 @@ static PyObject *__pyx_pf_4psha_4sha1_10dumps(struct __pyx_obj_4psha_sha1 *__pyx
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("psha.sha1.dumps", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("psha.dumps", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1632,76 +1648,19 @@ static PyObject *__pyx_pf_4psha_4sha1_10dumps(struct __pyx_obj_4psha_sha1 *__pyx
   return __pyx_r;
 }
 
-/* "psha.pyx":61
+/* "psha.pyx":67
  * 
- *     @staticmethod
- *     def loads(bytes data):             # <<<<<<<<<<<<<<
- *         if len(data) != sizeof(SHADump):
- *             raise DecodeError('Invalid object length')
+ * 
+ * cpdef sha1 loads(bytes data):             # <<<<<<<<<<<<<<
+ *     if len(data) != sizeof(SHADump):
+ *         raise DecodeError('Invalid object length')
  */
 
-/* Python wrapper */
-static PyObject *__pyx_pw_4psha_4sha1_13loads(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_4psha_4sha1_13loads = {"loads", (PyCFunction)__pyx_pw_4psha_4sha1_13loads, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_4psha_4sha1_13loads(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyObject *__pyx_v_data = 0;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("loads (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_data,0};
-    PyObject* values[1] = {0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_data)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "loads") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 61; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-    }
-    __pyx_v_data = ((PyObject*)values[0]);
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("loads", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 61; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("psha.sha1.loads", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyBytes_Type), 1, "data", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 61; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_r = __pyx_pf_4psha_4sha1_12loads(__pyx_v_data);
-
-  /* function exit code */
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_4psha_4sha1_12loads(PyObject *__pyx_v_data) {
+static PyObject *__pyx_pw_4psha_3loads(PyObject *__pyx_self, PyObject *__pyx_v_data); /*proto*/
+static struct __pyx_obj_4psha_sha1 *__pyx_f_4psha_loads(PyObject *__pyx_v_data, CYTHON_UNUSED int __pyx_skip_dispatch) {
   __pyx_t_4psha_SHADump *__pyx_v_dump;
   struct __pyx_obj_4psha_sha1 *__pyx_v_sha = NULL;
-  PyObject *__pyx_r = NULL;
+  struct __pyx_obj_4psha_sha1 *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   Py_ssize_t __pyx_t_1;
   int __pyx_t_2;
@@ -1714,138 +1673,185 @@ static PyObject *__pyx_pf_4psha_4sha1_12loads(PyObject *__pyx_v_data) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("loads", 0);
 
-  /* "psha.pyx":62
- *     @staticmethod
- *     def loads(bytes data):
- *         if len(data) != sizeof(SHADump):             # <<<<<<<<<<<<<<
- *             raise DecodeError('Invalid object length')
- *         cdef SHADump *dump = <SHADump*> <char*> data
+  /* "psha.pyx":68
+ * 
+ * cpdef sha1 loads(bytes data):
+ *     if len(data) != sizeof(SHADump):             # <<<<<<<<<<<<<<
+ *         raise DecodeError('Invalid object length')
+ *     cdef SHADump *dump = <SHADump*> <char*> data
  */
   if (unlikely(__pyx_v_data == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 68; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_t_1 = PyBytes_GET_SIZE(__pyx_v_data); if (unlikely(__pyx_t_1 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyBytes_GET_SIZE(__pyx_v_data); if (unlikely(__pyx_t_1 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 68; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_t_2 = ((__pyx_t_1 != (sizeof(__pyx_t_4psha_SHADump))) != 0);
   if (__pyx_t_2) {
 
-    /* "psha.pyx":63
- *     def loads(bytes data):
- *         if len(data) != sizeof(SHADump):
- *             raise DecodeError('Invalid object length')             # <<<<<<<<<<<<<<
- *         cdef SHADump *dump = <SHADump*> <char*> data
- *         if dump.magic != SHA_DUMP_MAGIC:
+    /* "psha.pyx":69
+ * cpdef sha1 loads(bytes data):
+ *     if len(data) != sizeof(SHADump):
+ *         raise DecodeError('Invalid object length')             # <<<<<<<<<<<<<<
+ *     cdef SHADump *dump = <SHADump*> <char*> data
+ *     if dump.magic != SHA_DUMP_MAGIC:
  */
-    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_DecodeError); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 63; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_DecodeError); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 69; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 63; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 69; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 63; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 69; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-    /* "psha.pyx":62
- *     @staticmethod
- *     def loads(bytes data):
- *         if len(data) != sizeof(SHADump):             # <<<<<<<<<<<<<<
- *             raise DecodeError('Invalid object length')
- *         cdef SHADump *dump = <SHADump*> <char*> data
+    /* "psha.pyx":68
+ * 
+ * cpdef sha1 loads(bytes data):
+ *     if len(data) != sizeof(SHADump):             # <<<<<<<<<<<<<<
+ *         raise DecodeError('Invalid object length')
+ *     cdef SHADump *dump = <SHADump*> <char*> data
  */
   }
 
-  /* "psha.pyx":64
- *         if len(data) != sizeof(SHADump):
- *             raise DecodeError('Invalid object length')
- *         cdef SHADump *dump = <SHADump*> <char*> data             # <<<<<<<<<<<<<<
- *         if dump.magic != SHA_DUMP_MAGIC:
- *             raise DecodeError('Magic does not match')
+  /* "psha.pyx":70
+ *     if len(data) != sizeof(SHADump):
+ *         raise DecodeError('Invalid object length')
+ *     cdef SHADump *dump = <SHADump*> <char*> data             # <<<<<<<<<<<<<<
+ *     if dump.magic != SHA_DUMP_MAGIC:
+ *         raise DecodeError('Magic does not match')
  */
-  __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_data); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_data); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_dump = ((__pyx_t_4psha_SHADump *)((char *)__pyx_t_5));
 
-  /* "psha.pyx":65
- *             raise DecodeError('Invalid object length')
- *         cdef SHADump *dump = <SHADump*> <char*> data
- *         if dump.magic != SHA_DUMP_MAGIC:             # <<<<<<<<<<<<<<
- *             raise DecodeError('Magic does not match')
- *         sha = sha1()
+  /* "psha.pyx":71
+ *         raise DecodeError('Invalid object length')
+ *     cdef SHADump *dump = <SHADump*> <char*> data
+ *     if dump.magic != SHA_DUMP_MAGIC:             # <<<<<<<<<<<<<<
+ *         raise DecodeError('Magic does not match')
+ *     sha = sha1()
  */
   __pyx_t_2 = ((__pyx_v_dump->magic != __pyx_e_4psha_SHA_DUMP_MAGIC) != 0);
   if (__pyx_t_2) {
 
-    /* "psha.pyx":66
- *         cdef SHADump *dump = <SHADump*> <char*> data
- *         if dump.magic != SHA_DUMP_MAGIC:
- *             raise DecodeError('Magic does not match')             # <<<<<<<<<<<<<<
- *         sha = sha1()
- *         sha.sha = dump.sha
+    /* "psha.pyx":72
+ *     cdef SHADump *dump = <SHADump*> <char*> data
+ *     if dump.magic != SHA_DUMP_MAGIC:
+ *         raise DecodeError('Magic does not match')             # <<<<<<<<<<<<<<
+ *     sha = sha1()
+ *     sha.sha = dump.sha
  */
-    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_DecodeError); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 66; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_DecodeError); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 72; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 66; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 72; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 66; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 72; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-    /* "psha.pyx":65
- *             raise DecodeError('Invalid object length')
- *         cdef SHADump *dump = <SHADump*> <char*> data
- *         if dump.magic != SHA_DUMP_MAGIC:             # <<<<<<<<<<<<<<
- *             raise DecodeError('Magic does not match')
- *         sha = sha1()
+    /* "psha.pyx":71
+ *         raise DecodeError('Invalid object length')
+ *     cdef SHADump *dump = <SHADump*> <char*> data
+ *     if dump.magic != SHA_DUMP_MAGIC:             # <<<<<<<<<<<<<<
+ *         raise DecodeError('Magic does not match')
+ *     sha = sha1()
  */
   }
 
-  /* "psha.pyx":67
- *         if dump.magic != SHA_DUMP_MAGIC:
- *             raise DecodeError('Magic does not match')
- *         sha = sha1()             # <<<<<<<<<<<<<<
- *         sha.sha = dump.sha
- *         return sha
+  /* "psha.pyx":73
+ *     if dump.magic != SHA_DUMP_MAGIC:
+ *         raise DecodeError('Magic does not match')
+ *     sha = sha1()             # <<<<<<<<<<<<<<
+ *     sha.sha = dump.sha
+ *     return sha
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_4psha_sha1), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_4psha_sha1), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_v_sha = ((struct __pyx_obj_4psha_sha1 *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "psha.pyx":68
- *             raise DecodeError('Magic does not match')
- *         sha = sha1()
- *         sha.sha = dump.sha             # <<<<<<<<<<<<<<
- *         return sha
+  /* "psha.pyx":74
+ *         raise DecodeError('Magic does not match')
+ *     sha = sha1()
+ *     sha.sha = dump.sha             # <<<<<<<<<<<<<<
+ *     return sha
  */
   __pyx_t_6 = __pyx_v_dump->sha;
   __pyx_v_sha->sha = __pyx_t_6;
 
-  /* "psha.pyx":69
- *         sha = sha1()
- *         sha.sha = dump.sha
- *         return sha             # <<<<<<<<<<<<<<
+  /* "psha.pyx":75
+ *     sha = sha1()
+ *     sha.sha = dump.sha
+ *     return sha             # <<<<<<<<<<<<<<
  */
-  __Pyx_XDECREF(__pyx_r);
+  __Pyx_XDECREF(((PyObject *)__pyx_r));
   __Pyx_INCREF(((PyObject *)__pyx_v_sha));
-  __pyx_r = ((PyObject *)__pyx_v_sha);
+  __pyx_r = __pyx_v_sha;
   goto __pyx_L0;
 
-  /* "psha.pyx":61
+  /* "psha.pyx":67
  * 
- *     @staticmethod
- *     def loads(bytes data):             # <<<<<<<<<<<<<<
- *         if len(data) != sizeof(SHADump):
- *             raise DecodeError('Invalid object length')
+ * 
+ * cpdef sha1 loads(bytes data):             # <<<<<<<<<<<<<<
+ *     if len(data) != sizeof(SHADump):
+ *         raise DecodeError('Invalid object length')
  */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("psha.sha1.loads", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
+  __Pyx_AddTraceback("psha.loads", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_sha);
+  __Pyx_XGIVEREF((PyObject *)__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_4psha_3loads(PyObject *__pyx_self, PyObject *__pyx_v_data); /*proto*/
+static PyObject *__pyx_pw_4psha_3loads(PyObject *__pyx_self, PyObject *__pyx_v_data) {
+  CYTHON_UNUSED int __pyx_lineno = 0;
+  CYTHON_UNUSED const char *__pyx_filename = NULL;
+  CYTHON_UNUSED int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("loads (wrapper)", 0);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyBytes_Type), 1, "data", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_r = __pyx_pf_4psha_2loads(__pyx_self, ((PyObject*)__pyx_v_data));
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_4psha_2loads(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("loads", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = ((PyObject *)__pyx_f_4psha_loads(__pyx_v_data, 0)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("psha.loads", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -1883,8 +1889,6 @@ static PyMethodDef __pyx_methods_4psha_sha1[] = {
   {"copy", (PyCFunction)__pyx_pw_4psha_4sha1_5copy, METH_NOARGS, 0},
   {"digest", (PyCFunction)__pyx_pw_4psha_4sha1_7digest, METH_NOARGS, 0},
   {"hexdigest", (PyCFunction)__pyx_pw_4psha_4sha1_9hexdigest, METH_NOARGS, 0},
-  {"dumps", (PyCFunction)__pyx_pw_4psha_4sha1_11dumps, METH_NOARGS, 0},
-  {"loads", (PyCFunction)__pyx_pw_4psha_4sha1_13loads, METH_VARARGS|METH_KEYWORDS, 0},
   {0, 0, 0, 0}
 };
 
@@ -1947,6 +1951,8 @@ static PyTypeObject __pyx_type_4psha_sha1 = {
 };
 
 static PyMethodDef __pyx_methods[] = {
+  {"dumps", (PyCFunction)__pyx_pw_4psha_1dumps, METH_O, 0},
+  {"loads", (PyCFunction)__pyx_pw_4psha_3loads, METH_O, 0},
   {0, 0, 0, 0}
 };
 
@@ -1977,13 +1983,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_data, __pyx_k_data, sizeof(__pyx_k_data), 0, 0, 1, 1},
   {&__pyx_n_s_digest, __pyx_k_digest, sizeof(__pyx_k_digest), 0, 0, 1, 1},
   {&__pyx_n_s_doc, __pyx_k_doc, sizeof(__pyx_k_doc), 0, 0, 1, 1},
-  {&__pyx_n_s_dump, __pyx_k_dump, sizeof(__pyx_k_dump), 0, 0, 1, 1},
-  {&__pyx_n_s_dumps, __pyx_k_dumps, sizeof(__pyx_k_dumps), 0, 0, 1, 1},
   {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
   {&__pyx_n_s_hex, __pyx_k_hex, sizeof(__pyx_k_hex), 0, 0, 1, 1},
   {&__pyx_n_s_hexdigest, __pyx_k_hexdigest, sizeof(__pyx_k_hexdigest), 0, 0, 1, 1},
-  {&__pyx_kp_s_home_vitja_work_psha_psha_pyx, __pyx_k_home_vitja_work_psha_psha_pyx, sizeof(__pyx_k_home_vitja_work_psha_psha_pyx), 0, 0, 1, 0},
-  {&__pyx_n_s_loads, __pyx_k_loads, sizeof(__pyx_k_loads), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_metaclass, __pyx_k_metaclass, sizeof(__pyx_k_metaclass), 0, 0, 1, 1},
   {&__pyx_n_s_module, __pyx_k_module, sizeof(__pyx_k_module), 0, 0, 1, 1},
@@ -1991,15 +1993,12 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_psha, __pyx_k_psha, sizeof(__pyx_k_psha), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
   {&__pyx_n_s_qualname, __pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 0, 1, 1},
-  {&__pyx_n_s_sha, __pyx_k_sha, sizeof(__pyx_k_sha), 0, 0, 1, 1},
-  {&__pyx_n_s_staticmethod, __pyx_k_staticmethod, sizeof(__pyx_k_staticmethod), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_update, __pyx_k_update, sizeof(__pyx_k_update), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_Exception = __Pyx_GetBuiltinName(__pyx_n_s_Exception); if (!__pyx_builtin_Exception) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 25; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_n_s_staticmethod); if (!__pyx_builtin_staticmethod) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 60; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_Exception = __Pyx_GetBuiltinName(__pyx_n_s_Exception); if (!__pyx_builtin_Exception) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -2009,50 +2008,38 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "psha.pyx":52
+  /* "psha.pyx":56
+ *         cdef bytes digest = self.digest()
+ *         if PY_MAJOR_VERSION < 3:
+ *             return digest.encode('hex')             # <<<<<<<<<<<<<<
+ *         return digest.hex()
  * 
- *     cpdef str hexdigest(self):
- *         return self.digest().encode('hex')             # <<<<<<<<<<<<<<
- * 
- *     cpdef bytes dumps(self):
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_n_s_hex); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 52; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_n_s_hex); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 56; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "psha.pyx":63
- *     def loads(bytes data):
- *         if len(data) != sizeof(SHADump):
- *             raise DecodeError('Invalid object length')             # <<<<<<<<<<<<<<
- *         cdef SHADump *dump = <SHADump*> <char*> data
- *         if dump.magic != SHA_DUMP_MAGIC:
+  /* "psha.pyx":69
+ * cpdef sha1 loads(bytes data):
+ *     if len(data) != sizeof(SHADump):
+ *         raise DecodeError('Invalid object length')             # <<<<<<<<<<<<<<
+ *     cdef SHADump *dump = <SHADump*> <char*> data
+ *     if dump.magic != SHA_DUMP_MAGIC:
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_Invalid_object_length); if (unlikely(!__pyx_tuple__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 63; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_Invalid_object_length); if (unlikely(!__pyx_tuple__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 69; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "psha.pyx":66
- *         cdef SHADump *dump = <SHADump*> <char*> data
- *         if dump.magic != SHA_DUMP_MAGIC:
- *             raise DecodeError('Magic does not match')             # <<<<<<<<<<<<<<
- *         sha = sha1()
- *         sha.sha = dump.sha
+  /* "psha.pyx":72
+ *     cdef SHADump *dump = <SHADump*> <char*> data
+ *     if dump.magic != SHA_DUMP_MAGIC:
+ *         raise DecodeError('Magic does not match')             # <<<<<<<<<<<<<<
+ *     sha = sha1()
+ *     sha.sha = dump.sha
  */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_Magic_does_not_match); if (unlikely(!__pyx_tuple__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 66; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_Magic_does_not_match); if (unlikely(!__pyx_tuple__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 72; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-
-  /* "psha.pyx":61
- * 
- *     @staticmethod
- *     def loads(bytes data):             # <<<<<<<<<<<<<<
- *         if len(data) != sizeof(SHADump):
- *             raise DecodeError('Invalid object length')
- */
-  __pyx_tuple__4 = PyTuple_Pack(3, __pyx_n_s_data, __pyx_n_s_dump, __pyx_n_s_sha); if (unlikely(!__pyx_tuple__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 61; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_tuple__4);
-  __Pyx_GIVEREF(__pyx_tuple__4);
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_vitja_work_psha_psha_pyx, __pyx_n_s_loads, 61, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 61; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2161,11 +2148,10 @@ PyMODINIT_FUNC PyInit_psha(void)
   __pyx_vtable_4psha_sha1.copy = (struct __pyx_obj_4psha_sha1 *(*)(struct __pyx_obj_4psha_sha1 *, int __pyx_skip_dispatch))__pyx_f_4psha_4sha1_copy;
   __pyx_vtable_4psha_sha1.digest = (PyObject *(*)(struct __pyx_obj_4psha_sha1 *, int __pyx_skip_dispatch))__pyx_f_4psha_4sha1_digest;
   __pyx_vtable_4psha_sha1.hexdigest = (PyObject *(*)(struct __pyx_obj_4psha_sha1 *, int __pyx_skip_dispatch))__pyx_f_4psha_4sha1_hexdigest;
-  __pyx_vtable_4psha_sha1.dumps = (PyObject *(*)(struct __pyx_obj_4psha_sha1 *, int __pyx_skip_dispatch))__pyx_f_4psha_4sha1_dumps;
-  if (PyType_Ready(&__pyx_type_4psha_sha1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 29; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_4psha_sha1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 31; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_4psha_sha1.tp_print = 0;
-  if (__Pyx_SetVtable(__pyx_type_4psha_sha1.tp_dict, __pyx_vtabptr_4psha_sha1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 29; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (PyObject_SetAttrString(__pyx_m, "sha1", (PyObject *)&__pyx_type_4psha_sha1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 29; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_SetVtable(__pyx_type_4psha_sha1.tp_dict, __pyx_vtabptr_4psha_sha1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 31; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "sha1", (PyObject *)&__pyx_type_4psha_sha1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 31; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_4psha_sha1 = &__pyx_type_4psha_sha1;
   /*--- Type import code ---*/
   /*--- Variable import code ---*/
@@ -2175,92 +2161,34 @@ PyMODINIT_FUNC PyInit_psha(void)
   if (__Pyx_patch_abc() < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   #endif
 
-  /* "psha.pyx":25
+  /* "psha.pyx":27
  * 
  * 
  * class DecodeError(Exception):             # <<<<<<<<<<<<<<
  *     pass
  * 
  */
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 25; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_builtin_Exception);
   __Pyx_GIVEREF(__pyx_builtin_Exception);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_builtin_Exception);
-  __pyx_t_2 = __Pyx_CalculateMetaclass(NULL, __pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 25; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_CalculateMetaclass(NULL, __pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_t_1, __pyx_n_s_DecodeError, __pyx_n_s_DecodeError, (PyObject *) NULL, __pyx_n_s_psha, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 25; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_t_1, __pyx_n_s_DecodeError, __pyx_n_s_DecodeError, (PyObject *) NULL, __pyx_n_s_psha, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_DecodeError, __pyx_t_1, __pyx_t_3, NULL, 0, 1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 25; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_DecodeError, __pyx_t_1, __pyx_t_3, NULL, 0, 1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_DecodeError, __pyx_t_4) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 25; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_DecodeError, __pyx_t_4) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "psha.pyx":61
- * 
- *     @staticmethod
- *     def loads(bytes data):             # <<<<<<<<<<<<<<
- *         if len(data) != sizeof(SHADump):
- *             raise DecodeError('Invalid object length')
- */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4psha_4sha1_13loads, NULL, __pyx_n_s_psha); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 61; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_1);
-
-  /* "psha.pyx":60
- *         return (<char *>&dump)[:sizeof(SHADump)]
- * 
- *     @staticmethod             # <<<<<<<<<<<<<<
- *     def loads(bytes data):
- *         if len(data) != sizeof(SHADump):
- */
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 60; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
-  __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 60; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_4psha_sha1->tp_dict, __pyx_n_s_loads, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 61; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  PyType_Modified(__pyx_ptype_4psha_sha1);
-
-  /* "psha.pyx":61
- * 
- *     @staticmethod
- *     def loads(bytes data):             # <<<<<<<<<<<<<<
- *         if len(data) != sizeof(SHADump):
- *             raise DecodeError('Invalid object length')
- */
-  __pyx_t_1 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_4psha_sha1, __pyx_n_s_loads); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 61; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_1);
-
-  /* "psha.pyx":60
- *         return (<char *>&dump)[:sizeof(SHADump)]
- * 
- *     @staticmethod             # <<<<<<<<<<<<<<
- *     def loads(bytes data):
- *         if len(data) != sizeof(SHADump):
- */
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 60; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
-  __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 60; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_4psha_sha1->tp_dict, __pyx_n_s_loads, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 61; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  PyType_Modified(__pyx_ptype_4psha_sha1);
-
   /* "psha.pyx":1
- * cimport libc.stdint             # <<<<<<<<<<<<<<
+ * from cpython.version cimport PY_MAJOR_VERSION             # <<<<<<<<<<<<<<
+ * cimport libc.stdint
  * 
- * cdef extern from "openssl/sha.h":
  */
   __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
@@ -2912,14 +2840,6 @@ static PyObject *__Pyx_Py3ClassCreate(PyObject *metaclass, PyObject *name, PyObj
         Py_DECREF(margs);
     }
     Py_XDECREF(owned_metaclass);
-    return result;
-}
-
-static PyObject *__Pyx_GetNameInClass(PyObject *nmspace, PyObject *name) {
-    PyObject *result;
-    result = __Pyx_PyObject_GetAttrStr(nmspace, name);
-    if (!result)
-        result = __Pyx_GetModuleGlobalName(name);
     return result;
 }
 

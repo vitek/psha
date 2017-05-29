@@ -1,4 +1,6 @@
+from cpython.version cimport PY_MAJOR_VERSION
 cimport libc.stdint
+
 
 cdef extern from "openssl/sha.h":
     ctypedef struct SHA_CTX:
@@ -49,21 +51,25 @@ cdef class sha1(object):
         return binary[:SHA_DIGEST_LENGTH]
 
     cpdef str hexdigest(self):
-        return self.digest().encode('hex')
+        cdef bytes digest = self.digest()
+        if PY_MAJOR_VERSION < 3:
+            return digest.encode('hex')
+        return digest.hex()
 
-    cpdef bytes dumps(self):
-        cdef SHADump dump
-        dump.magic = SHA_DUMP_MAGIC
-        dump.sha = self.sha
-        return (<char *>&dump)[:sizeof(SHADump)]
 
-    @staticmethod
-    def loads(bytes data):
-        if len(data) != sizeof(SHADump):
-            raise DecodeError('Invalid object length')
-        cdef SHADump *dump = <SHADump*> <char*> data
-        if dump.magic != SHA_DUMP_MAGIC:
-            raise DecodeError('Magic does not match')
-        sha = sha1()
-        sha.sha = dump.sha
-        return sha
+cpdef bytes dumps(sha1 sha):
+    cdef SHADump dump
+    dump.magic = SHA_DUMP_MAGIC
+    dump.sha = sha.sha
+    return (<char *>&dump)[:sizeof(SHADump)]
+
+
+cpdef sha1 loads(bytes data):
+    if len(data) != sizeof(SHADump):
+        raise DecodeError('Invalid object length')
+    cdef SHADump *dump = <SHADump*> <char*> data
+    if dump.magic != SHA_DUMP_MAGIC:
+        raise DecodeError('Magic does not match')
+    sha = sha1()
+    sha.sha = dump.sha
+    return sha
